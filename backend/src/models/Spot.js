@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const env = require('../config/env');
+const appUrl = env.appUrl;
 
 const SpotSchema = new mongoose.Schema({
     thumbnail: String,
@@ -16,7 +18,7 @@ const SpotSchema = new mongoose.Schema({
 });
 
 SpotSchema.virtual('thumbnail_url').get(function () {
-    return `http://192.168.7.106:7777/files/${this.thumbnail}`;
+    return `${appUrl}/files/${this.thumbnail}`;
 });
 
 module.exports = mongoose.model('Spot', SpotSchema);
