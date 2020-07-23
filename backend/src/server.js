@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -5,9 +7,8 @@ const path = require("path");
 const socketio = require("socket.io");
 const routes = require("./routes");
 const http = require("http");
-const env = require("./config/env");
 
-require("dotenv").config();
+const env = require("./config/env");
 
 const app = express();
 const server = http.Server(app);
